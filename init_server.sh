@@ -1,3 +1,4 @@
+#!/bin/bash
 apt update
 apt install make gcc -y
 
