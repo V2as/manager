@@ -22,5 +22,4 @@ cd /opt/amnezia-tools/src
 make
 make install
 
-git clone https://github.com/V2as/manager.git /opt/manager
 
