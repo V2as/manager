@@ -143,7 +143,7 @@ function init {
 
 cat <<EOF > "$SERVER_NAME.conf"
 [Interface]
-Address = ${SERVER_IP_PREFIX}.1/32
+Address = ${SERVER_IP_PREFIX}.1/100
 ListenPort = ${SERVER_PORT}
 PrivateKey = ${SERVER_PVT_KEY}
 PostUp = iptables -A INPUT -i ${SERVER_NAME} -j ACCEPT; iptables -A FORWARD -i ${SERVER_NAME} -j ACCEPT; iptables -A OUTPUT -o ${SERVER_NAME} -j ACCEPT; iptables -A FORWARD -i ${SERVER_NAME} -o ${SERVER_INTERFACE} -s ${SERVER_IP_PREFIX}.0/24 -j ACCEPT; iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT; iptables -t nat -A POSTROUTING -s ${SERVER_IP_PREFIX}.0/24 -o ${SERVER_INTERFACE} -j MASQUERADE
