@@ -2,9 +2,7 @@
 apt update && apt upgrade -y
 apt install make gcc -y
 apt install build-essential curl git wget -y
-echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
-echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
-sysctl -p /etc/sysctl.conf
+apt update
 
 mkdir -p /opt/go
 cd /opt/go
