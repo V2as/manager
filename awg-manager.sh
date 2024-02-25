@@ -161,8 +161,9 @@ H4 = 172455276
 EOF
 
     echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf
+    echo net.ipv4.conf.all.forwarding=1 >> /etc/sysctl.conf
     sysctl -p
-
+    
     systemctl enable awg-quick@${SERVER_NAME}
     awg-quick up ${SERVER_NAME} || true
 
