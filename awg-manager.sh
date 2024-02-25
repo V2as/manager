@@ -159,12 +159,14 @@ H3 = 1724528624
 H4 = 172455276
 
 EOF
-
+    ufw allow ${SERVER_PORT}/udp
     echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf
     echo net.ipv4.conf.all.forwarding=1 >> /etc/sysctl.conf
-    sysctl -p
+    echo net.ipv6.conf.all.forwarding=1 >> /etc/sysctl.conf
+    sysctl -p /etc/sysctl.conf
     
     systemctl enable awg-quick@${SERVER_NAME}
+    systemctl start awg-quick@${SERVER_NAME}
     awg-quick up ${SERVER_NAME} || true
 
     echo "Server initialized successfully"
